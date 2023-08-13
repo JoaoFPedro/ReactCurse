@@ -24,9 +24,14 @@ const expenses = [
   },
 ];
 function Finances(): ReactElement {
+  const addExpenseHandler = (expense: any) => {
+    console.log("Finances app");
+    console.log(expense);
+  };
+
   return (
     <>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Container className="Container01">
         <Expenses
           title={expenses[0].title}
