@@ -1,7 +1,10 @@
 import { useState, type ReactElement } from "react";
 import { Container } from "./styles";
 
-function ExpenseForm(): ReactElement {
+interface ExpenseFormProps {
+  onSaveExpenseData: (enteredExpenseData: any) => void;
+}
+function ExpenseForm(props: ExpenseFormProps): ReactElement {
   // 1- First way to manipulate the user input
   const [inputTitle, setInputTitle] = useState("");
   const [inputDate, setInputDate] = useState("");
@@ -58,7 +61,7 @@ const [userInput, setUserInput] = useState({
       amout: inputAmout,
       date: new Date(inputDate),
     };
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
     setInputTitle("");
     setInputDate("");
     setInputAmout("");
