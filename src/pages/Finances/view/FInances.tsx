@@ -1,5 +1,6 @@
-import { type ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 import Expenses from "../components/Expenses/view/Expenses";
+import ExpensesFilter from "../components/ExpensesFilter";
 import NewExpense from "../components/NewExpense";
 import { Container } from "./style";
 const expenses = [
@@ -28,11 +29,21 @@ function Finances(): ReactElement {
     console.log("Finances app");
     console.log(expense);
   };
+  const [filteredYear, setFilteredYear] = useState("2020");
+
+  const filterChangeHandler = (selectedYear: string) => {
+    setFilteredYear(selectedYear);
+  };
 
   return (
     <>
       <NewExpense onAddExpense={addExpenseHandler} />
+
       <Container className="Container01">
+        <ExpensesFilter
+          selected={filteredYear}
+          OnchangeFilter={filterChangeHandler}
+        />
         <Expenses
           title={expenses[0].title}
           amount={expenses[0].amount}
