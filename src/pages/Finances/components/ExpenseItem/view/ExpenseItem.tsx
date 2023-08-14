@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
 import ExpenseAmout from "../../ExpenseAmount";
 import ExpenseDate from "../../ExpenseDate";
 import ExpenseTitle from "../../ExpenseTitle";
@@ -10,21 +10,15 @@ interface expensesProps {
 }
 
 function ExpenseItem(props: expensesProps): ReactElement {
-  const [title, setTitle] = useState(props.title);
-  const clickHandler = () => {
-    setTitle("Updated");
-  };
-
   return (
     <Container>
       <div>
         <ExpenseDate date={props.date} />
       </div>
       <div className="expense-item_description">
-        <ExpenseTitle title={title} />
+        <ExpenseTitle title={props.title} />
         <ExpenseAmout amount={props.amount} />
       </div>
-      <button onClick={clickHandler}>Change title</button>
     </Container>
   );
 }
