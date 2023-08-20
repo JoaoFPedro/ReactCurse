@@ -1,2 +1,2 @@
-import Expense from "./view/Expenses";
-export default Expense;
+import Expenses from "./view/Expenses";
+export default Expenses;

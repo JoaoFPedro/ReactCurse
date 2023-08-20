@@ -37,6 +37,7 @@ const [userInput, setUserInput] = useState({
   };
   const amoutChangeHandler = (event: { target: { value: any } }) => {
     setInputAmout(event.target.value);
+    console.log(event.target.value);
 
     /* setUserInput((prevState) => {
       return {...prevState, enteredAmout: event.target.value}
@@ -58,7 +59,7 @@ const [userInput, setUserInput] = useState({
 
     const expenseData = {
       title: inputTitle,
-      amout: inputAmout,
+      amount: inputAmout,
       date: new Date(inputDate),
     };
     props.onSaveExpenseData(expenseData);
