@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "react";
 import ExpenseItem from "../../ExpenseItem";
 
 import { Container } from "./styles";
@@ -8,18 +8,20 @@ interface expensesProps {
   amount: number;
   date: Date;
 }
-function Expense(props: expensesProps): ReactElement {
+function Expenses(props: expensesProps): ReactElement {
   return (
-    <div className="container">
-      <Container>
-        <ExpenseItem
-          title={props.title}
-          amount={props.amount}
-          date={props.date}
-        />
-      </Container>
-    </div>
+    <>
+      <div className="container">
+        <Container>
+          <ExpenseItem
+            title={props.title}
+            amount={props.amount}
+            date={props.date}
+          />
+        </Container>
+      </div>
+    </>
   );
 }
 
-export default Expense;
+export default Expenses;

@@ -3,18 +3,18 @@ import Expenses from "../components/Expenses/view/Expenses";
 import ExpensesFilter from "../components/ExpensesFilter";
 import NewExpense from "../components/NewExpense";
 import { Container } from "./style";
-const expenses = [
+const DummyExpenses = [
   {
     id: "e1",
     title: "Toilet Paper",
-    amount: 94.12,
+    amount: 94,
     date: new Date(2020, 7, 14),
   },
-  { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
+  { id: "e2", title: "New TV", amount: 799, date: new Date(2021, 2, 12) },
   {
     id: "e3",
     title: "Car Insurance",
-    amount: 294.67,
+    amount: 294,
     date: new Date(2021, 2, 28),
   },
   {
@@ -31,9 +31,17 @@ const expenses = [
   },
 ];
 function Finances(): ReactElement {
-  const addExpenseHandler = (expense: any) => {
-    console.log("Finances app");
-    console.log(expense);
+  const [expenses, setExpenses] = useState(DummyExpenses);
+
+  const addExpenseHandler = (expense: {
+    id: string;
+    title: string;
+    amount: number;
+    date: Date;
+  }) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   };
   const [filteredYear, setFilteredYear] = useState("2020");
 
@@ -50,11 +58,11 @@ function Finances(): ReactElement {
           selected={filteredYear}
           OnchangeFilter={filterChangeHandler}
         />
-        {expenses.map((expense) => (
+        {expenses.map((expenses) => (
           <Expenses
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
+            title={expenses.title}
+            amount={expenses.amount}
+            date={expenses.date}
           />
         ))}
       </Container>

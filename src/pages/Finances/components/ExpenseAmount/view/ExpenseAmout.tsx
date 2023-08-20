@@ -1,14 +1,15 @@
 import { type ReactElement } from "react";
 import { Container } from "./styles";
-interface expenseProps {
+interface expensesProps {
   amount: number;
 }
 
-function ExpenseAmout(props: expenseProps): ReactElement {
+function ExpenseAmout(props: expensesProps): ReactElement {
+  const amount = props.amount;
   return (
-    <Container>
-      <div>R$ {props.amount}</div>
-    </Container>
+    <>
+      <Container>{amount}</Container>
+    </>
   );
 }
 

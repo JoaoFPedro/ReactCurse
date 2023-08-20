@@ -12,6 +12,7 @@ function NewExpense(props: NewExpenseFormProps): ReactElement {
       id: Math.random().toString(),
     };
     props.onAddExpense(expenseData);
+    console.log(enteredExpenseData);
   };
 
   return (
