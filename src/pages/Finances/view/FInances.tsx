@@ -48,6 +48,9 @@ function Finances(): ReactElement {
   const filterChangeHandler = (selectedYear: string) => {
     setFilteredYear(selectedYear);
   };
+  const filteredExpenses = expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <>
@@ -58,8 +61,9 @@ function Finances(): ReactElement {
           selected={filteredYear}
           OnchangeFilter={filterChangeHandler}
         />
-        {expenses.map((expenses) => (
+        {filteredExpenses.map((expenses) => (
           <Expenses
+            key={expenses.id}
             title={expenses.title}
             amount={expenses.amount}
             date={expenses.date}
