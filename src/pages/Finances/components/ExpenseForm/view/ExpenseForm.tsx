@@ -1,5 +1,6 @@
 import { useState, type ReactElement } from "react";
 import { Container } from "./styles";
+// Logica do formulario para pegar input do usuario
 
 interface ExpenseFormProps {
   onSaveExpenseData: (enteredExpenseData: any) => void;
