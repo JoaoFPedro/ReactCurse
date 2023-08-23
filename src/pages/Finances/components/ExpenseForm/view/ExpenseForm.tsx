@@ -83,7 +83,7 @@ const [userInput, setUserInput] = useState({
             <label>Date</label>
             <input
               type="date"
-              min="2023-01-01"
+              min="2022-01-01"
               max="2025-12-31"
               value={inputDate}
               onChange={dateChangeHandler}
