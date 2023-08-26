@@ -62,7 +62,7 @@ function Finances(): ReactElement {
           OnchangeFilter={filterChangeHandler}
         />
         {filteredExpenses.length === 0 && (
-          <p className="noExpensesFound"> No Expesens Found</p>
+          <h1 className="noExpensesFound"> No Expesens Found</h1>
         )}
         {filteredExpenses.length > 0 &&
           filteredExpenses.map((expenses) => (

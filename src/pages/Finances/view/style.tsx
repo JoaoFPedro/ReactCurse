@@ -1,13 +1,10 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  .noExpensesFound {
+  h1 {
     list-style: none;
     padding: 0;
-
-    .expenses-list__fallback {
-      color: white;
-      text-align: center;
-    }
+    color: white;
+    text-align: center;
   }
 `;
