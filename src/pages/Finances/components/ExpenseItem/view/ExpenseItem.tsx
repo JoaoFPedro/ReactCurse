@@ -12,15 +12,17 @@ interface expensesProps {
 function ExpenseItem(props: expensesProps): ReactElement {
   return (
     <>
-      <Container>
-        <div>
-          <ExpenseDate date={props.date} />
-        </div>
-        <div className="expense-item_description">
-          <ExpenseTitle title={props.title} />
-          <ExpenseAmout amount={props.amount} />
-        </div>
-      </Container>
+      <li className="listItem">
+        <Container>
+          <div>
+            <ExpenseDate date={props.date} />
+          </div>
+          <div className="expense-item_description">
+            <ExpenseTitle title={props.title} />
+            <ExpenseAmout amount={props.amount} />
+          </div>
+        </Container>
+      </li>
     </>
   );
 }

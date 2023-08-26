@@ -61,15 +61,19 @@ function Finances(): ReactElement {
           selected={filteredYear}
           OnchangeFilter={filterChangeHandler}
         />
-        {filteredExpenses.length === 0 && <p> No Expesens Found</p>}
+        {filteredExpenses.length === 0 && (
+          <p className="noExpensesFound"> No Expesens Found</p>
+        )}
         {filteredExpenses.length > 0 &&
           filteredExpenses.map((expenses) => (
-            <Expenses
-              key={expenses.id}
-              title={expenses.title}
-              amount={expenses.amount}
-              date={expenses.date}
-            />
+            <ul>
+              <Expenses
+                key={expenses.id}
+                title={expenses.title}
+                amount={expenses.amount}
+                date={expenses.date}
+              />
+            </ul>
           ))}
       </Container>
     </>
